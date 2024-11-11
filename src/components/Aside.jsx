@@ -1,6 +1,7 @@
 import { FaPen } from "react-icons/fa";
 import { IoHomeSharp } from "react-icons/io5";
 import LinkDash from "./LinkDash";
+import { FaUsers } from "react-icons/fa";
 
 const Aside = () => {
   return (
@@ -9,8 +10,11 @@ const Aside = () => {
         <LinkDash href={"/"} icon={<IoHomeSharp />}>
           Inicio
         </LinkDash>
-        <LinkDash href={"/"} icon={<FaPen />}>
+        <LinkDash href={"/register"} icon={<FaPen />}>
           Registrar
+        </LinkDash>
+        <LinkDash href={"/pacientes"} icon={<FaUsers />}>
+          Pacientes
         </LinkDash>
       </ul>
     </aside>

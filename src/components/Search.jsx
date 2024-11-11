@@ -6,7 +6,7 @@ const Search = () => {
   return (
     <form action="" onSubmit={getPerson} className="flex gap-2">
       <input
-        type="text"
+        type="number"
         onChange={(e) => setDni(e.target.value)}
         value={dni}
         placeholder="Inserte DNI"

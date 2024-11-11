@@ -1,11 +1,14 @@
 import Search from "../components/Search";
 import FromRegister from "../components/FromRegister";
+import ContextRegister from "../context/ContextRegister";
 
 const Register = () => {
   return (
     <div className="p-8 overflow-y-scroll">
-      <Search />
-      <FromRegister />
+      <ContextRegister>
+        <Search />
+        <FromRegister />
+      </ContextRegister>
     </div>
   );
 };

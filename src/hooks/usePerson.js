@@ -1,18 +1,21 @@
 import { useState } from "react";
-import getDatos from "../assets/services/person";
+import getDatos from "../services/person";
+import { useContextRegister } from "./useContextRegister";
 const usePerson = ({ dni }) => {
-    const [state, setState] = useState(null);
     const [error, setError] = useState("");
+    const { setPacient } = useContextRegister()
 
     const getPerson = async (e) => {
         e.preventDefault();
         try {
-            const person = await getDatos(dni)
-            if (typeof (person) === 'string') {
-                throw new Error(person);
+            if (dni.length == 8) {
+                const person = await getDatos(dni)
+                setPacient(person)
+                setError('');
+                return
             }
-            setError('');
-            return setState(person);
+            setError("El DNI no es valido");
+
         } catch (error) {
             setError(error.message)
         }
@@ -20,7 +23,6 @@ const usePerson = ({ dni }) => {
 
     return {
         error,
-        state,
         getPerson
     }
 };
